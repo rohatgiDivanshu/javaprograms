@@ -1,88 +1,5 @@
 package com.bootcamp.demo;
 
-
-
-
-/*
-
-abstract int getRateOfInterest();
-abstract int getPrincipalAmount();
-abstract String getDetails();
-
-public int calculateSimpleInterest(){
-
-        return (getPrincipalAmount()*getRateOfInterest()*3)/100;
-        }
-        }
-
-class SBI extends Bank{
-    @Override
-    int getRateOfInterest() {
-        return 0;
-    }
-
-    @Override
-    int getPrincipalAmount() {
-        return 0;
-    }
-
-    @Override
-    String getDetails() {
-        return null;
-    }
-}
-
-class BOI extends Bank{
-    @Override
-    int getRateOfInterest() {
-        return 0;
-    }
-
-    @Override
-    int getPrincipalAmount() {
-        return 0;
-    }
-
-    @Override
-    String getDetails() {
-        return null;
-    }
-}
-
-class ICICI extends Bank{
-    @Override
-    int getRateOfInterest() {
-        return 0;
-    }
-
-    @Override
-    int getPrincipalAmount() {
-        return 0;
-    }
-
-    @Override
-    String getDetails() {
-        return null;
-    }
-}
-
-public class Q11_InheritanceUsingBank {
-    public static void main(String[] args) {
-        SBI s = new SBI();
-        BOI b = new BOI();
-        ICICI i = new ICICI();
-        System.out.println("Rate For SBI : "+s.getRateOfInterest());
-        System.out.println("Rate For BOI : "+b.getRateOfInterest());
-        System.out.println("Rate For ICICI : "+i.getRateOfInterest());
-    }
-}
-*/
-
-
-
-//---------------------------------------------------------------------------------------------------------
-
-
 abstract class Bank{
 
     abstract double prinicpalValue();
@@ -156,9 +73,6 @@ class BOI extends Bank{
     @Override
     double prinicpalValue() {
 
-//        Scanner scPrinciple = new Scanner(System.in);
-//        System.out.println("Enter Principle Amount for SBI Bank :");
-//        double principle = scPrinciple.nextDouble();
         double principle = 16000;
         return principle;
     }
@@ -166,19 +80,12 @@ class BOI extends Bank{
     @Override
     float rateValue() {
 
-//        Scanner scRate = new Scanner(System.in);
-//        System.out.println("Enter Rate for SBI Bank :");
-//        float rate = scRate.nextFloat();
         float rate = 10.02f;
         return rate;
     }
 
     @Override
     int timeValue() {
-
-//        Scanner scPrinciple = new Scanner(System.in);
-//        System.out.println("Enter Principle Amount for SBI Bank :");
-//        double principle = scPrinciple.nextDouble();
 
         int time = 9;
         return time;
@@ -212,9 +119,6 @@ class ICICI extends Bank{
     @Override
     double prinicpalValue() {
 
-//        Scanner scPrinciple = new Scanner(System.in);
-//        System.out.println("Enter Principle Amount for SBI Bank :");
-//        double principle = scPrinciple.nextDouble();
         double principle = 1000;
         return principle;
     }
@@ -222,19 +126,12 @@ class ICICI extends Bank{
     @Override
     float rateValue() {
 
-//        Scanner scRate = new Scanner(System.in);
-//        System.out.println("Enter Rate for SBI Bank :");
-//        float rate = scRate.nextFloat();
         float rate = 6.02f;
         return rate;
     }
 
     @Override
     int timeValue() {
-
-//        Scanner scPrinciple = new Scanner(System.in);
-//        System.out.println("Enter Principle Amount for SBI Bank :");
-//        double principle = scPrinciple.nextDouble();
 
         int time = 6;
         return time;
@@ -263,11 +160,6 @@ class ICICI extends Bank{
         return compundInterest;
     }
 }
-
-
-
-
-
 
 public class Question11 {
 
