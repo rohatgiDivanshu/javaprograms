@@ -15,11 +15,11 @@ public class Question2 {
 
                 if (words[i].equals(words[j]))
                 {
-                    wrc = wrc + 1;
+                    wrc++;
                     words[j] = "0";
                 }
             }
-            if (words[i] != "0")
+            if (!words[i].equals("0"))
                 System.out.println(words[i] + " : " + wrc);
             wrc = 1;
 
