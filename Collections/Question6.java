@@ -9,11 +9,11 @@ public class Question6 {
         int[] arr = {3, 3, 2, 2, 1, 1, 1, 1, 1, 6, 7, 2, 2};
         Map<Integer, Integer> map = new HashMap();
         for (int i = 0; i < arr.length; i++) {
-            if (!(map.containsKey(arr[i]))) {
-                map.put(arr[i], 1);
-            }
             if (map.containsKey(arr[i])) {
                 map.put(arr[i], map.get(arr[i]) + 1);
+            }
+            else{
+                map.put(arr[i], 1);
             }
         }
         System.out.println("Before Sorting : ");
