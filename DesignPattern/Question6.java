@@ -1,93 +1,74 @@
 package com.DesignPattern;
 
 interface Pizza {
-    String bakePizzainfo();
+    int getPrice();
 }
 
-class BasePizza implements Pizza{
+class PlainPizza implements Pizza {
+
     @Override
-    public String bakePizzainfo() {
-        return "Basic Pizza";
-    }
-    public float getCost(){
-        return 100;
+    public int getPrice() {
+        return 50;
     }
 }
 
-class Mushroom implements Pizza {
-    private Pizza pizza;
-    private Integer cost;
+abstract class ToppingDecorator implements Pizza {
+    Pizza toppingPizza;
 
-    public Mushroom(Pizza pizza, Integer cost) {
-        this.pizza = pizza;
-        this.cost = cost;
+    public ToppingDecorator(Pizza toppingPizza) {
+        this.toppingPizza = toppingPizza;
+    }
+}
+
+class CheeseToppings extends ToppingDecorator {
+
+    public CheeseToppings(Pizza toppingPizza) {
+        super(toppingPizza);
     }
 
-    public Pizza getPizza() {
-        return pizza;
-    }
-
-    public void setPizza(Pizza pizza) {
-        this.pizza = pizza;
-    }
-
-    public Integer getCost() {
-        return cost;
-    }
-
-    public void setCost(Integer cost) {
-        this.cost = cost;
-    }
     @Override
-    public String bakePizzainfo() {
-        return pizza.bakePizzainfo() + " : A mushroom Pizza With Cost "+cost;
+    public int getPrice() {
+        return this.toppingPizza.getPrice() + 100;
     }
 }
 
+class ChickenToppings extends ToppingDecorator {
 
-class Pepperoni implements Pizza {
-    private Pizza pizza;
-    private Integer cost;
-
-    public Pepperoni(Pizza pizza, Integer cost) {
-        this.pizza = pizza;
-        this.cost = cost;
+    public ChickenToppings(Pizza toppingPizza) {
+        super(toppingPizza);
     }
 
-    public Pizza getPizza() {
-        return pizza;
-    }
-
-    public void setPizza(Pizza pizza) {
-        this.pizza = pizza;
-    }
-
-    public Integer getCost() {
-        return cost;
-    }
-
-    public void setCost(Integer cost) {
-        this.cost = cost;
-    }
     @Override
-    public String bakePizzainfo() {
-        return pizza.bakePizzainfo() + " : A Pepperoni Pizza With Cost "+cost;
+    public int getPrice() {
+        return this.toppingPizza.getPrice() + 120;
     }
 }
 
+class MushroomsToppings extends ToppingDecorator {
+
+    public MushroomsToppings(Pizza toppingPizza) {
+        super(toppingPizza);
+    }
+
+    @Override
+    public int getPrice() {
+        return this.toppingPizza.getPrice() + 125;
+    }
+}
 
 public class Question6 {
     public static void main(String[] args) {
-        BasePizza basePizza = new BasePizza();
-        System.out.println(basePizza.bakePizzainfo());
-//        System.out.println(basePizza.getCost());
+        Pizza pizza = new PlainPizza();
+        System.out.println("Plain Pizza Rs." + pizza.getPrice());
 
-        Mushroom mushroom = new Mushroom(new BasePizza() , 600);
-        System.out.println(mushroom.bakePizzainfo());
+        pizza = new CheeseToppings(pizza);
+        System.out.println("Pizza with Cheese Toppings Rs." + pizza.getPrice());
 
-        Pepperoni pepperoni = new Pepperoni(new BasePizza(),1050);
-        System.out.println(pepperoni.bakePizzainfo());
+        pizza = new ChickenToppings(pizza);
+        System.out.println("Pizza with Cheese and Chicken Toppings Rs." + pizza.getPrice());
 
+        pizza = new MushroomsToppings(pizza);
+        System.out.println("Pizza with Cheese, Chicken and Mushroom Toppings Rs." + pizza.getPrice());
     }
 
 }
